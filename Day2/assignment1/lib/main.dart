@@ -16,9 +16,7 @@ class MainApp extends StatelessWidget {
           backgroundColor: Colors.purple,
           title: const Text(
             'Box Decoration Example',
-            style: TextStyle(
-              color: Colors.white,
-            ),
+            style: TextStyle(color: Colors.white),
           ),
         ),
         body: Center(
