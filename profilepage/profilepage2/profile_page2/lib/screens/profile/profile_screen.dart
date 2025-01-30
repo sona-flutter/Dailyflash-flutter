@@ -46,11 +46,6 @@ class ProfileScreen extends StatelessWidget {
                   onTap: () {},
                 ),
                 ProfileMenuItem(
-                  icon: Icons.people,
-                  title: 'Dash me Small 2k',
-                  onTap: () {},
-                ),
-                ProfileMenuItem(
                   icon: Icons.support_agent,
                   title: 'Customer Care Services',
                   onTap: () {},
