@@ -1,4 +1,3 @@
-// lib/models/salon_profile.dart
 class SalonProfile {
   final String name;
   final String email;

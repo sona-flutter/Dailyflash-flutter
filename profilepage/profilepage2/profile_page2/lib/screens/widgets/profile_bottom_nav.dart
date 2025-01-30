@@ -1,4 +1,3 @@
-// lib/screens/profile/widgets/profile_bottom_nav.dart
 import 'package:flutter/material.dart';
 import '../../../constants/app_colors.dart';
 

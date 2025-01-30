@@ -1,4 +1,3 @@
-// lib/screens/profile/profile_screen.dart
 import 'package:flutter/material.dart';
 
 import 'package:profile_page2/constants/app_text_styles.dart';
@@ -41,7 +40,7 @@ class ProfileScreen extends StatelessWidget {
                   onTap: () {},
                 ),
                 ProfileMenuItem(
-                  icon: Icons.content_cut,
+                  icon: Icons.home_repair_service,
                   title: 'Request Home Services',
                   onTap: () {},
                 ),
