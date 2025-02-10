@@ -10,7 +10,7 @@ import '../../constants/app_colors.dart';
 class ProfileScreen extends StatelessWidget {
   final SalonProfile profile = SalonProfile.dummy();
 
-  ProfileScreen({Key? key}) : super(key: key);
+  ProfileScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
