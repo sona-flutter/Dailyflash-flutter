@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:my_shop_app/view/sidebar/dashboard/dashboard_screen%20copy.dart';
+import 'package:my_shop_app/view/sidebar/order/order_screen.dart';
+
+import 'view/sidebar/transaction/transaction_screen.dart';
 
 class MainScreen extends StatefulWidget {
   const MainScreen({super.key});
@@ -11,9 +15,9 @@ class _MainScreenState extends State<MainScreen> {
   int _selectedIndex = 0;
 
   final List<Widget> _pages = [
-    const DashboardPage(),
-    const TransactionPage(),
-    const TaskPage(),
+    const DashboardScreen(),
+    TransactionScreen(),
+    OrderScreen(),
     const DocumentsPage(),
     const StorePage(),
     const NotificationPage(),
@@ -24,7 +28,7 @@ class _MainScreenState extends State<MainScreen> {
   final List<NavigationItem> _navigationItems = [
     NavigationItem(icon: Icons.dashboard_outlined, label: 'Dashboard'),
     NavigationItem(icon: Icons.receipt_long_outlined, label: 'Transaction'),
-    NavigationItem(icon: Icons.task_outlined, label: 'Task'),
+    NavigationItem(icon: Icons.task_outlined, label: 'Order'),
     NavigationItem(icon: Icons.document_scanner_outlined, label: 'Documents'),
     NavigationItem(icon: Icons.store_outlined, label: 'Store'),
     NavigationItem(icon: Icons.notifications_outlined, label: 'Notification'),
@@ -37,6 +41,19 @@ class _MainScreenState extends State<MainScreen> {
     bool isMobile = MediaQuery.of(context).size.width < 600;
 
     return Scaffold(
+      appBar: isMobile
+          ? AppBar(
+              backgroundColor: const Color(0xFF121212),
+              foregroundColor: Colors.white,
+              title: Text(_navigationItems[_selectedIndex].label),
+              leading: Builder(
+                builder: (context) => IconButton(
+                  icon: const Icon(Icons.menu),
+                  onPressed: () => Scaffold.of(context).openDrawer(),
+                ),
+              ),
+            )
+          : null, // Show AppBar only for Mobile
       body: Row(
         children: [
           if (!isMobile)
@@ -99,12 +116,29 @@ class _MainScreenState extends State<MainScreen> {
       backgroundColor: const Color(0xFF121212),
       child: Column(
         children: [
-          const SizedBox(height: 50),
-          Image.asset(
-            'assets/logo.png',
-            height: 60,
+          DrawerHeader(
+            decoration: const BoxDecoration(
+              color: Color(0xFF121212),
+            ),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Image.asset(
+                  'assets/logo.png',
+                  height: 60,
+                ),
+                const SizedBox(height: 10),
+                const Text(
+                  'App Name',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ],
+            ),
           ),
-          const SizedBox(height: 20),
           Expanded(
             child: ListView.builder(
               itemCount: _navigationItems.length,
@@ -148,32 +182,6 @@ class NavigationItem {
 }
 
 // Dummy Pages (Replace with your actual pages)
-class DashboardPage extends StatelessWidget {
-  const DashboardPage({super.key});
-  @override
-  Widget build(BuildContext context) {
-    return const Center(
-        child: Text('Dashboard Page', style: TextStyle(fontSize: 24)));
-  }
-}
-
-class TransactionPage extends StatelessWidget {
-  const TransactionPage({super.key});
-  @override
-  Widget build(BuildContext context) {
-    return const Center(
-        child: Text('Transaction Page', style: TextStyle(fontSize: 24)));
-  }
-}
-
-class TaskPage extends StatelessWidget {
-  const TaskPage({super.key});
-  @override
-  Widget build(BuildContext context) {
-    return const Center(
-        child: Text('Task Page', style: TextStyle(fontSize: 24)));
-  }
-}
 
 class DocumentsPage extends StatelessWidget {
   const DocumentsPage({super.key});
